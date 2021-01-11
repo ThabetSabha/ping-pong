@@ -9,6 +9,7 @@ canvas.height = window.innerHeight - 18;
 const ballRadius = 20;
 const paddleWidth = 15/1000 * canvas.width;
 const paddleHeight = 1.2/7 * canvas.height;
+const computerPaddleSpeed = 0.02 * canvas.height;
 
 
 //Ball position & speed
@@ -60,9 +61,9 @@ const resetPositions = () => {
 const computerMovement = () => {
     let paddle2YCenter = paddle2Y + paddleHeight / 2;
     if (ballY > paddle2YCenter + paddleHeight / 2) {
-        paddle2Y += 0.01 * canvas.height;
+        paddle2Y += computerPaddleSpeed;
     } else if (paddle2YCenter > ballY) {
-        paddle2Y -= 0.01 * canvas.height;
+        paddle2Y -= computerPaddleSpeed;
     }
 }
 
