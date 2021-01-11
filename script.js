@@ -1,17 +1,21 @@
 const canvas = document.getElementById('canvas');
 const canvasContext = canvas.getContext('2d');
 
+
+canvas.width = window.innerWidth - 18;
+canvas.height = window.innerHeight - 18;
+
 //Paddles & Ball properties;
 const ballRadius = 20;
-const paddleWidth = 15;
-const paddleHeight = 100;
+const paddleWidth = 15/1000 * canvas.width;
+const paddleHeight = 1.2/7 * canvas.height;
 
 
 //Ball position & speed
 let ballX = (canvas.width - ballRadius) / 2;
 let ballY = (canvas.height - ballRadius) / 2;
-let ballSpeedX = 7;
-let ballSpeedY = 5;
+let ballSpeedX = 0.005 * canvas.width;
+let ballSpeedY = 0.005 * canvas.height;
 
 
 //Paddles' positions
@@ -56,9 +60,9 @@ const resetPositions = () => {
 const computerMovement = () => {
     let paddle2YCenter = paddle2Y + paddleHeight / 2;
     if (ballY > paddle2YCenter + paddleHeight / 2) {
-        paddle2Y += 6;
+        paddle2Y += 0.01 * canvas.height;
     } else if (paddle2YCenter > ballY) {
-        paddle2Y -= 6;
+        paddle2Y -= 0.01 * canvas.height;
     }
 }
 
@@ -185,7 +189,7 @@ const handleMouseDown = () => {
     }
 }
 
-window.addEventListener('mousedown', handleMouseDown);
+canvas.addEventListener('mousedown', handleMouseDown);
 
 
 
