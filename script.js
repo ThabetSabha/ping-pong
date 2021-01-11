@@ -14,7 +14,7 @@ const paddleHeight = 1.2/7 * canvas.height;
 //Ball position & speed
 let ballX = (canvas.width - ballRadius) / 2;
 let ballY = (canvas.height - ballRadius) / 2;
-let ballSpeedX = 0.0065 * canvas.width;
+let ballSpeedX = 0.008 * canvas.width;
 let ballSpeedY = 0.005 * canvas.height;
 
 
